@@ -1,0 +1,46 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(18,18,18);
+  height: 100vh;
+  display: flex;
+  position: relative;
+  /*
+  to prevent image highlighting 
+  set user-select to none
+  */
+  user-select: none;
+  cursor: pointer;
+  --left-value:0px;
+}
+.bar{
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 10px;
+  left :var(--left-value);
+  background-color: white;
+}
+.image-one-container,
+.image-two-container{
+  padding: 50px 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & img{
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+}
+.image-one-container{
+  position: absolute;
+  /*cover the entire image initially*/
+  clip-path:inset(0px calc(100vw - var(--left-value)) 0px 0px);
+  background-color: rgb(18,18,18);
+}
